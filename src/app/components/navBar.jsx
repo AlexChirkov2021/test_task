@@ -22,11 +22,19 @@ const NavBar = ({ Admin, onAdmin }) => {
           Профиль
         </Link>
       </li>
-      <li className="nav-item" onClick={() => onAdmin(false)}>
-        <Link className="nav-link " aria-current="page" to="/">
-          Выйти
-        </Link>
-      </li>
+      {Admin && (
+        <li
+          className="nav-item"
+          onClick={() => {
+            onAdmin(false);
+            localStorage.setItem("isAdmin", "false");
+          }}
+        >
+          <Link className="nav-link " aria-current="page" to="/">
+            Выйти
+          </Link>
+        </li>
+      )}
     </ul>
   );
 };

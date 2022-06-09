@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Main from "./layouts/main";
 import Profile from "./layouts/profile";
@@ -9,7 +9,15 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const [Admin, setAdmin] = useState(false);
+  const [Admin, setAdmin] = useState();
+  useEffect(() => {
+    if (localStorage.getItem("isAdmin") === "true") {
+      setAdmin(true);
+    } else {
+      localStorage.setItem("isAdmin", "false");
+      setAdmin(false);
+    }
+  }, []);
   return (
     <div className="App">
       <NavBar Admin={Admin} onAdmin={setAdmin} />

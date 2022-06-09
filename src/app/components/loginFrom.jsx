@@ -3,7 +3,7 @@ import TextField from "./textField";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const LoginForm = ({ Admin, onAdmin }) => {
+const LoginForm = ({ onAdmin }) => {
   const history = useHistory();
   const [data, setData] = useState({
     login: "",
@@ -20,6 +20,7 @@ const LoginForm = ({ Admin, onAdmin }) => {
     e.preventDefault();
     if (data.login === "Admin" && data.password === "12345") {
       onAdmin((prevState) => (prevState = !prevState));
+      localStorage.setItem("isAdmin", "true");
       history.push(`/profile`);
       toast.success(`Вы успешно вошли в систему!`, {
         autoClose: 1500,
