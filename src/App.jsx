@@ -18,7 +18,7 @@ function App() {
       localStorage.setItem("isAdmin", "false");
       dispatch({ type: "SET_ADMIN", payload: false });
     }
-  }, []);
+  });
   return (
     <div className="App">
       <NavBar />
