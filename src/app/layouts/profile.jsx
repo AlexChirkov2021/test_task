@@ -22,8 +22,7 @@ const Profile = () => {
 
               <div className="px-4 mt-1">
                 <p className="fonts">
-                  Привет, меня зовут Александр Чирков и я начинающий Frontend
-                  разработчик.
+                  Привет, меня зовут Александр Чирков и я Frontend разработчик.
                 </p>
               </div>
 
