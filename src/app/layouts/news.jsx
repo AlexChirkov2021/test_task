@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "../asyncActions/posts";
+
 const News = () => {
-  const [posts, setPosts] = useState();
-  const getPosts = async () => {
-    const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    setPosts(data);
-  };
+  const posts = useSelector((state) => state.posts.posts);
+  const dispatch = useDispatch();
   useEffect(() => {
-    getPosts();
+    dispatch(fetchPosts());
   }, []);
   if (posts) {
     return (

@@ -369,7 +369,7 @@ const Main = () => {
               <a
                 className="btn btn-outline-secondary disabled"
                 href="/"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-disabled="true"
               >
                 Newer
