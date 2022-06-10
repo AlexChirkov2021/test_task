@@ -7,7 +7,7 @@ const News = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPosts());
-  }, []);
+  });
   if (posts) {
     return (
       <div>
@@ -16,7 +16,7 @@ const News = () => {
           {posts.map((post) => (
             <div key={post.id}>
               <h2>{post.id + " " + post.title}</h2>
-              <p>{post.body}</p>
+              <p style={{ textTransform: "capitalize " }}>{post.body}</p>
             </div>
           ))}
         </ul>
