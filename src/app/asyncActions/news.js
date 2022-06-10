@@ -1,10 +1,10 @@
 import axios from "axios";
-import { setPostsAction } from "../store/postsReducer";
+import { setNewsAction } from "../store/newsReducer";
 
 export const fetchPosts = () => {
   return function (dispatch) {
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
-      .then((data) => dispatch(setPostsAction(data.data)));
+      .then((data) => dispatch(setNewsAction(data.data)));
   };
 };

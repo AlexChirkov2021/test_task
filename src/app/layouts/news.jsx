@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts } from "../asyncActions/posts";
+import { fetchPosts } from "../asyncActions/news";
 
 const News = () => {
-  const posts = useSelector((state) => state.posts.posts);
+  const news = useSelector((state) => state.news.news);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPosts());
   });
-  if (posts) {
+  if (news) {
     return (
       <div>
-        <h1>Posts</h1>
+        <h1>News</h1>
         <ul>
-          {posts.map((post) => (
-            <div key={post.id}>
-              <h2>{post.id + " " + post.title}</h2>
-              <p style={{ textTransform: "capitalize " }}>{post.body}</p>
+          {news.map((item) => (
+            <div key={item.id}>
+              <h2>{item.id + " " + item.title}</h2>
+              <p style={{ textTransform: "capitalize " }}>{item.body}</p>
             </div>
           ))}
         </ul>
